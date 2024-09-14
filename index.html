@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="sudoku-grid"></div>
+    <button id="check">Проверить</button>
+    <button id="reset">Сбросить</button>
+    <button id="new-game">Новая игра</button>
+    <div id="message"></div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+            .then(() => console.log('Service Worker зарегистрирован'))
+            .catch(err => console.log('Ошибка регистрации Service Worker', err));
+        }
+    </script>
+</body>
+</html>

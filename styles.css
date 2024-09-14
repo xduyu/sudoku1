@@ -1,0 +1,139 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eceff1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px; /* Уменьшен для мобильных */
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#sudoku-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-gap: 2px; /* Немного уменьшен разрыв */
+    margin-bottom: 20px;
+    width: 100%; /* Адаптивная ширина */
+    max-width: 90vw; /* Максимальная ширина на экране телефона */
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(90vw / 9); /* Адаптивный размер клетки */
+    height: calc(90vw / 9); /* Адаптивная высота клетки */
+    background-color: #fff;
+    border: 1px solid #b0bec5;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.cell:hover {
+    background-color: #f0f4c3;
+}
+
+.cell input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: center;
+    font-size: 16px; /* Уменьшен размер шрифта */
+    font-weight: bold;
+    color: #37474f;
+    background: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.cell input:focus {
+    background-color: #c5e1a5;
+}
+
+.cell input[disabled] {
+    color: #1e88e5;
+    background-color: #e3f2fd;
+    font-weight: bold;
+    cursor: not-allowed;
+}
+
+/* Стили для границ клеток */
+.cell:nth-child(3n+1) {
+    border-left: 2px solid #263238;
+}
+
+.cell:nth-child(9n) {
+    border-right: 2px solid #263238;
+}
+
+.cell:nth-child(1n) {
+    border-bottom: 1px solid #b0bec5;
+}
+
+.cell:nth-child(-n+9) {
+    border-top: 2px solid #263238;
+}
+
+.cell:nth-child(n+73) {
+    border-bottom: 2px solid #263238;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Элементы кнопок будут переноситься на следующую строку при необходимости */
+}
+
+button {
+    padding: 10px 20px; /* Уменьшен padding для мобильных */
+    font-size: 14px; /* Уменьшен размер текста */
+    background-color: #6200ea;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #3700b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #3700b3;
+    transform: translateY(0);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.4);
+}
+
+#message {
+    font-size: 16px; /* Уменьшен для мобильных */
+    color: #37474f;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #cfd8dc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 90vw;
+}
